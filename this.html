@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+            name : "Mosh",
+            walk(){
+                console.log(this);
+            }
+        };
+        //  person.walk();
+       //const walk = person.walk;
+       // console.log(walk);
+       // with the bind method we set the value of this permanently
+       //
+       const test =  person.walk.bind(person);
+
+       //console.log(test);
+       test();
+       // arrow functions and this
+       // arrow function they don't rebind the this
+       // 
+       const persons = {
+           name:"mando",
+           talk(){
+               var self = this;
+               setTimeout(function(){
+                  console.log('self',self);
+               },4000);
+           }
+       };
+       persons.talk();
+
+       // in arrow function we don't need to do such
+       // old method or rebind this
+       // we use arrow function it will automatically 
+       // inherit the this keyword
+       //
+       const persons2 = {
+           name:"mando",
+           talk(){
+               // we don't need this
+               //var self = this;
+               setTimeout(() => {
+                  console.log('self',this);
+               },4000);
+           }
+       };
+       persons.talk();
+
+
+
+
+    </script>
+</body>
+</html>
